@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manufacturing Logic Gate Problem</title>
+    <script>
+        function process() {
+            //Input
+            var volume =
+                document.getElementById("mForm")
+                        .volume
+                        .value;
+            var temp =
+                document.getElementById("mForm")
+                        .temp
+                        .value;
+            var speed =
+                document.getElementById("mForm")
+                        .speed
+                        .value;
+
+            //Process:
+            //1. Volume > 1000 and Speed <= 15
+            //OR
+            //2. Temp <= 750 and Speed > 15
+//
+            //1. Volume > 1000 and Not(Speed > 15)
+            //OR
+            //2. Not(Temp > 750) and Speed > 15
+
+            //AND is represented as &&
+            //OR is represented as ||
+            //NOT is represented as !
+
+            if (
+                    (volume > 1000 && speed <= 15)
+                    ||
+                    (temp <= 750 && speed > 15)
+            ) {
+                //This happens when test is true
+                alert("STOP processing!");
+            }
+            else {
+                //This happens when test is false
+                alert("Resume...");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="mForm" method="get">
+        Approximate Volume:
+        <input
+            type="number"
+            name="volume"
+            min="800"
+            max="1200"
+            value="1000"
+            required
+        >
+        <br>
+        Approximate Temperature:
+        <input
+                type="number"
+                name="temp"
+                min="500"
+                max="1000"
+                value="750"
+                required
+        >
+        <br>
+        Approximate Speed:
+        <input
+                type="number"
+                name="speed"
+                min="0"
+                max="20"
+                value="15"
+                required
+        >
+        <br>
+        <input
+            type="submit"
+            id="submit"
+            onclick="process()"
+        >
+    </form>
+</body>
+</html>
