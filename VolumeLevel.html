@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>volumeLevel.html</title>
+</head>
+<body>
+    <script>
+        /*
+        1. For the same manufacturing process
+            as before (Volume, Speed, Temp, etc.)
+            but will focus on Volume (liquid).
+
+        2. We need to more closely monitor
+            the volume.
+
+        3. Volume MUST BE between 800 and 1200
+            SHOULD BE between 900 and 1100
+            (inclusive)
+        */
+
+        //variables:
+        var level;      //liquid level
+        var message;    //output message
+        var ES = "";    //empty string constant
+
+        level = prompt("Enter volume (liters)", ES);
+        prompt = parseFloat(level);
+
+        //Handle non-numeric input :(
+        //Use a SINGLE OUTCOME if statement:
+        if (isNaN(level)) {
+            level = 0;
+        }
+
+        //Process
+        //Use a DUAL OUTCOME if statement:
+        if (level <= 0) {
+            //Invalid input
+            message = "Invalid input, try again";
+        }
+        else {
+            //Valid input, check ranges:
+            //MUST BE between 800 and 1200
+            //SHOULD BE between 900 and 1100
+            // < 800
+            // 800 to < 900
+            // 900 to 1100
+            // > 1100 to 1200
+            // > 1200
+
+/*            //NESTED IF-ELSE-IF statement:
+            if (level < 800) {
+                message = "Level dangerously low";
+            }
+            else if (level < 900) {
+                message = "Level moderately low";
+            }
+            else if (level <= 1100) {
+                message = "Level acceptable";
+            }
+            else if (level <= 1200) {
+                message = "Level moderately high";
+            }
+            else { //default else
+                message = "Level dangerously high";
+            }*/
+
+            if (level <= 1200) {
+                if (level <= 1100) {
+                    if (level < 900) {
+                        if (level < 800) {
+                            message = "Level dangerously low";
+                        } //if < 800
+                        else {
+                            message = "Level moderately low";
+                        } // else >= 800
+                    } //if < 900
+                    else {
+                        message = "Level acceptable";
+                    } //else >= 900
+                } //if <= 1100
+                else {
+                    message = "Level moderately high";
+                }// else > 1100
+            } // if <= 1200
+            else {
+                message = "Level dangerously high";
+            }// else > 1200
+
+
+
+        } // else level > 0
+
+        alert(message);
+
+    </script>
+</body>
+</html>
