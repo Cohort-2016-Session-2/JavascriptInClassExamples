@@ -29,7 +29,7 @@
         }
 
         //For loop
-        for (var count = 1; count <= num_inputs; count++) {
+        /*for (var count = 1; count <= num_inputs; count++) {
             input = prompt(
                     "Enter value #" + count.toString() + ": "
                     , Z);
@@ -44,7 +44,47 @@
             }
             //Update the Accumulator
             total += input;
-        }//end for
+        }//end for   */
+
+        //while loop (pre-test)
+        /* var count = 1;
+        while (count <= num_inputs) {
+            input = prompt(
+                    "Enter value #" + count.toString() + ": "
+                    , Z);
+            input = parseInt(input);
+            //Compute the current max:
+            if (input > high) {
+                high = input;
+            }
+            //Compute the current min:
+            if (input < low) {
+                low = input;
+            }
+            //Update the Accumulator
+            total += input;
+
+            //Make sure to increment your counter
+            count++;
+            //otherwise you could have an
+            //infinite loop
+            //count = count + 1;
+            //count += 1;
+        } */
+
+        //do while loop (post-test)
+        var count = 1;
+        do {
+
+
+
+            count++;
+        } while (count <= num_inputs);
+
+
+
+
+
 
         //Compute average
         avg = total/num_inputs;
