@@ -17,11 +17,22 @@
         var BR = "<br>";
 
         try {
-            var num_inputs =
+            //There are two ways of validating
+            //user input
+            //1. Direct modification of invalid input
+            /*var num_inputs =
                 prompt("Enter # of inputs > 0", Z);
-            if (parseInt(num_inputs) < 1) {
+            num_inputs = parseInt(num_inputs);
+            if (isNaN(num_inputs) || num_inputs < 1) {
                 num_inputs = 1;
-            }
+            }*/
+
+            //2. Use a validation loop:
+            do {
+                var num_inputs =
+                        prompt("Enter # of inputs > 0", Z);
+                num_inputs = parseInt(num_inputs);
+            } while(isNaN(num_inputs) || num_inputs < 1)
         }//end try
         catch (e) {
             num_inputs = 1;
@@ -75,16 +86,31 @@
         //do while loop (post-test)
         var count = 1;
         do {
+            if (count > num_inputs) {
+                //continue;
+                //continue skips to the
+                //of the current iteration
+                break;
+                //break exits out of the
+                //loop completely
+            }
 
-
-
+            input = prompt(
+                    "Enter value #" + count.toString() + ": "
+                    , Z);
+            input = parseInt(input);
+            //Compute the current max:
+            if (input > high) {
+                high = input;
+            }
+            //Compute the current min:
+            if (input < low) {
+                low = input;
+            }
+            //Update the Accumulator
+            total += input;
             count++;
         } while (count <= num_inputs);
-
-
-
-
-
 
         //Compute average
         avg = total/num_inputs;
