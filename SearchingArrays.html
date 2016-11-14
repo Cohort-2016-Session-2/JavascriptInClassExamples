@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Searching Arrays</title>
+</head>
+<body>
+    <script>
+        var SIZE = 500;     //size of array
+        var index;          //loop index
+        var searchValue;    //value sought
+        var found = false;  //found flag
+        var ES = "";
+        var BR = "<br>";
+
+        //creates an empty pre-sized array
+        var squaresArray = new Array(SIZE);
+
+        //populate the array with squares
+        //of each index value
+        for (index = 0; index < SIZE; index++) {
+            squaresArray[index] = index * index;
+        }
+
+        //User will enter a value to check
+        searchValue = prompt(
+                "Enter an integer < 250000", ES);
+        searchValue = parseInt(searchValue);
+
+        //Perform a sequential search,
+        //looking for searchValue in squaresArray
+        /*index = 0;
+        found = false;
+        while (index < SIZE && !found
+                && squaresArray[index] <
+                    searchValue) {
+            //1. index smaller than the length of array
+            //2. found is false
+            //3. the current array value < search value
+            document.write(squaresArray[index] + BR);
+            if (squaresArray[index] == searchValue) {
+                found = true;
+                document.write("Perfect square!");
+            }
+            //increment counter
+            index++;
+        }*/
+
+        //Perform a binary search
+        var low = 0;
+        var high = SIZE - 1;
+
+
+
+    </script>
+</body>
+</html>
