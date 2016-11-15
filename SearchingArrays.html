@@ -37,7 +37,8 @@
             //1. index smaller than the length of array
             //2. found is false
             //3. the current array value < search value
-            document.write(squaresArray[index] + BR);
+            document.write(squaresArray[index]
+                    + " " + index + BR);
             if (squaresArray[index] == searchValue) {
                 found = true;
                 document.write("Perfect square!");
@@ -50,6 +51,40 @@
         var low = 0;
         var high = SIZE - 1;
 
+        found = false;
+        index = 0;
+
+        while (low <= high && (!found))
+        {
+            //find the middle index:
+            index = Math.floor((low + high)/2);
+
+            document.write(squaresArray[index]
+                    + " " + index + BR);
+
+            //test the middle element:
+            if (squaresArray[index] == searchValue)
+            {
+                found = true;
+                document.write("PERFECT SQUARE");
+            }
+            else {
+                //the search value doesn't match
+                if (squaresArray[index] > searchValue)
+                {
+                    high = index - 1;
+                }
+                else
+                {
+                    low = index + 1;
+                }
+            } //end else
+        }//end while
+
+        if (!found)
+        {
+            document.write("NOT a square");
+        }
 
 
     </script>
